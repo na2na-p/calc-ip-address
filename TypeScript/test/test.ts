@@ -27,6 +27,9 @@ describe('CalcIpクラスのテスト', () => {
 		it('ホストアドレス部の取得ができる', () => {
 			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000000000001111111111111111));
 		});
+		it('ホストアドレス部を10進表記にできる', () => {
+			expect(calc.getBinIpObj().hostAddress.addToDottedDecimalNotation()).deep.equal('0.0.255.255');
+		});
 		it('ブロードキャストアドレスの取得ができる', () => {
 			expect(calc.getBinIpObj().broadcastAddress).deep.equal(BigInt(0b10101100000100001111111111111111));
 		});
