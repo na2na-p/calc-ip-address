@@ -1,30 +1,20 @@
-type ipObj = {
-    ip: bigint;
-    subnet: bigint;
-    networkAddress: bigint;
-    broadcastAddress: bigint;
-    hostAddress: bigint;
-    cidr: number;
-}
+import {ipObj, ipBin} from '@/types/types.js';
 /**
  * 引数として渡されたIPアドレスのネットワークアドレスを計算するクラス。
  * @class CalcIp
  */
 export class CalcIp {
-	private ip: bigint;
-	private subnet: bigint;
+	private ip: ipBin;
+	private subnet: ipBin;
 	private cidr: number;
-	private networkAddress: bigint;
-	private broadcastAddress: bigint;
-	private hostAddress: bigint;
+	private networkAddress: ipBin;
+	private broadcastAddress: ipBin;
+	private hostAddress: ipBin;
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {
-			// 末尾の/より後ろの文字列を取得する。
 			const subnetCidr = ip.split('/')[1];
-			// 32ケタの2進数のうち、subnetの文字数分だけ1で埋めて、残りは0で埋める。
 			this.subnet = this.parseSubnetFromCidr(subnetCidr);
 			this.cidr = parseInt(subnetCidr);
-			// 先頭の/より前の文字列を取得する。
 			const ipStr = ip.split('/')[0];
 			this.ip = this.parseIp(ipStr);
 		} else {
@@ -34,8 +24,8 @@ export class CalcIp {
 			this.cidr = this.getCidr();
 			this.ip = this.parseIp(ip);
 		}
-		// this.ip.toString(2)とthis.subnet.toString(2)を1文字づつ対応する2進数の文字列に変換し、AND演算を行う。
-		// それをネットワークアドレスとする。
+		
+		// ネットワークアドレスを計算する。
 		this.networkAddress = this.ip & this.subnet;
 
 		// ホストアドレス部の取り出し
@@ -57,7 +47,6 @@ export class CalcIp {
 	}
 
 	/**
-     * @param {number} subnet サブネットマスク
      * @return {number} CIDR形式のアレ
      */
 	private getCidr(): number {
