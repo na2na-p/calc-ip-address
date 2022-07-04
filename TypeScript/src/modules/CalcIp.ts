@@ -8,9 +8,9 @@ type ipObj = {
 }
 /**
  * 引数として渡されたIPアドレスのネットワークアドレスを計算するクラス。
- * @class CalcRange
+ * @class CalcIp
  */
-export class CalcRange {
+export class CalcIp {
 	private ip: bigint;
 	private subnet: bigint;
 	private cidr: number;

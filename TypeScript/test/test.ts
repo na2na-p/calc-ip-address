@@ -1,13 +1,13 @@
 import {expect} from 'chai';
 import * as _mocha from 'mocha';
 
-import {CalcRange} from '../built/modules/calcRange.js';
+import {CalcIp} from '../built/modules/CalcIp.js';
 
 // mochaを利用したテストコード
 describe('モジュール群のテスト', () => {
 	describe('CIDR形式でのインポート', () => {
 		const input = '172.16.0.254/16';
-		const calc = new CalcRange(input);
+		const calc = new CalcIp(input);
 		it('IPを2進数表記にパースができている', () => {
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b10101100000100000000000011111110));
 		});
