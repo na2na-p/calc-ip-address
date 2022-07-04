@@ -13,6 +13,7 @@ yarn start
 何してるかはむしろここ見たほうがいい気がしないでもないです。
 ```bash
 cd TypeScript
+yarn build:test
 yarn test
 ```
 
