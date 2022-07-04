@@ -13,6 +13,6 @@ jobs:
       - name: ci
         run: cd TypeScript && yarn install --immutable --immutable-cache --check-cache
       - name: build & test
-        run: yarn build:test
+        run: cd TypeScript && yarn build:test
       - name: mocha
-        run: yarn mocha
+        run: cd TypeScript && yarn mocha
