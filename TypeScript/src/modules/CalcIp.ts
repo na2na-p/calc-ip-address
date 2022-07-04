@@ -4,12 +4,13 @@ import {ipObj, ipBin} from '@/types/types.js';
  * @class CalcIp
  */
 export class CalcIp {
-	private ip: ipBin;
-	private subnet: ipBin;
-	private cidr: number;
-	private networkAddress: ipBin;
-	private broadcastAddress: ipBin;
-	private hostAddress: ipBin;
+	ip: ipBin;
+	subnet: ipBin;
+	cidr: number;
+	networkAddress: ipBin;
+	broadcastAddress: ipBin;
+	hostAddress: ipBin;
+
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {
 			const subnetCidr = ip.split('/')[1];
