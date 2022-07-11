@@ -41,7 +41,6 @@ export class CalcIp {
      * @return {string} サブネットマスクを表す2進数の文字列 例: "11111111111111111111111111110000"
      */
 	private parseSubnet(subnet: string): bigint {
-		// 255.255.255.0を11111111111111111111111111110000に変換する
 		// 実はparseIp()と一緒
 		return this.parseIp(subnet);
 	}
