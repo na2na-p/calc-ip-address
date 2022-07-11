@@ -68,7 +68,10 @@ export class CalcIp {
      * @return {bigint} サブネットマスクを表す10進数の文字列
      */
 	private parseSubnetFromCidr(cidr: string): bigint {
-		return BigInt(parseInt(('1'.repeat(parseInt(cidr)) + '0'.repeat(32 - parseInt(cidr))).slice(0, 32), 2));
+		// -1をビットシフトして、サブネットマスクを求める。
+		// 例: 24 = 11111111 11111111 11111111 11111000
+		const subnet = BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr));
+		return subnet;
 	}
 
 	/**
