@@ -44,9 +44,9 @@ describe('CalcIpクラスのテスト', () => {
 		it('サブネットマスクを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111111100000000000000000000));
 		});
-		it('マスクビットの取得ができる', () => {
-			expect(calc.getBinIpObj().cidr).deep.equal(12);
-		});
+		// it('マスクビットの取得ができる', () => {
+		// 	expect(calc.getBinIpObj().cidr).deep.equal(12);
+		// });
 		it('ネットワークアドレスの取得ができる', () => {
 			expect(calc.getBinIpObj().networkAddress).deep.equal(BigInt(0b00001010100000000000000000000000));
 		});
