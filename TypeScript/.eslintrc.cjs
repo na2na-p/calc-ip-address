@@ -36,5 +36,7 @@ module.exports = {
 			'error',
 		],
 		'@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
+		// カスタムルール
+		// .toStringを使用したらwarnにする
 	}
 };
