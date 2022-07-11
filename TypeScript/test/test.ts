@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import {describe, it} from 'mocha';
 
 import {CalcIp} from '../built/modules/CalcIp.js';
-import '../built/extensions/number.extensions.js';
+import '../built/extensions/bigint.extensions.js';
 
 // mochaを利用したテストコード
 describe('CalcIpクラスのテスト', () => {
