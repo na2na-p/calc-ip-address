@@ -4,7 +4,7 @@ export type ipObj = {
     networkAddress: ipBin;
     broadcastAddress: ipBin;
     hostAddress: ipBin;
-    cidr: number;
+    cidr?: number;
 }
 
 // ipBin型は、bigint型である。

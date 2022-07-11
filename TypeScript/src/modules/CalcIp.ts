@@ -6,7 +6,7 @@ import {ipObj, ipBin} from '@/types/types.js';
 export class CalcIp {
 	ip: ipBin;
 	subnet: ipBin;
-	cidr: number;
+	cidr: number | undefined;
 	networkAddress: ipBin;
 	broadcastAddress: ipBin;
 	hostAddress: ipBin;
@@ -22,7 +22,6 @@ export class CalcIp {
 			// サブネットマスクを取得する。
 			// サブネットマスクを、2進数に変換して、32ケタの2進数のうち、subnetの文字数分だけ1で埋めて、残りは0で埋める。
 			this.subnet = this.parseSubnet(subnet);
-			this.cidr = this.getCidr();
 			this.ip = this.parseIp(ip);
 		}
 		
@@ -45,21 +44,6 @@ export class CalcIp {
 		// 255.255.255.0を11111111111111111111111111110000に変換する
 		// 実はparseIp()と一緒
 		return this.parseIp(subnet);
-	}
-
-	/**
-     * @return {number} CIDR形式のアレ
-     */
-	private getCidr(): number {
-		const subnet = this.subnet.toString(2);
-		let cidr = 0;
-		for (let i = 0; i < subnet.length; i++) {
-			if (subnet[i] == '1') {
-				cidr++;
-			}
-		}
-
-		return cidr;
 	}
 
 	/**
