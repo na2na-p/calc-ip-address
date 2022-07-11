@@ -30,7 +30,7 @@ export class CalcIp {
 		this.networkAddress = this.ip & this.subnet;
 
 		// ホストアドレス部の取り出し
-		this.hostAddress = this.subnet ^ BigInt(0b11111111111111111111111111111111);
+		this.hostAddress = this.subnet ^ 4294967295n;
 
 		// ブロードキャストアドレス
 		this.broadcastAddress = this.networkAddress | this.hostAddress;
