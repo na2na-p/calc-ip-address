@@ -1,9 +1,9 @@
 export type ipObj = {
-    ip: ipBin;
-    subnet: ipBin;
-    networkAddress: ipBin;
-    broadcastAddress: ipBin;
-    hostAddress: ipBin;
+    ip: number;
+    subnet: number;
+    networkAddress: number;
+    broadcastAddress: number;
+    hostAddress: number;
     cidr: number;
 }
 

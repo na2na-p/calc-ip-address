@@ -3,7 +3,7 @@ const args = process.argv.slice(2);
 
 import { CalcIp } from '@modules/CalcIp.js';
 import { Compare } from '@modules/Compare.js';
-import '@/extensions/bigint.extensions.js';
+import '@/extensions/number.extensions.js';
 
 // 引数が2個ならtrue,4個ならfalseを返す。
 // そうでなければErrorをthrowする。
