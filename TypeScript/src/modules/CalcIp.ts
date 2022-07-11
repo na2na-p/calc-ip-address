@@ -65,7 +65,7 @@ export class CalcIp {
 	/**
      * CIDR形式のあの末尾の数字からサブネットマスクを求めるメソッド
      * @param cidr CIDR形式のあの末尾の数字 例: "24"
-     * @return {string} サブネットマスクを表す2進数の文字列 例: "11111111111111111111111111110000"
+     * @return {bigint} サブネットマスクを表す10進数の文字列
      */
 	private parseSubnetFromCidr(cidr: string): bigint {
 		return BigInt(parseInt(('1'.repeat(parseInt(cidr)) + '0'.repeat(32 - parseInt(cidr))).slice(0, 32), 2));
@@ -77,15 +77,13 @@ export class CalcIp {
      * @return {string} IPアドレスを表す2進数の文字列 例: "11000000101010000000000000001"
      */
 	private parseIp(ip: string): bigint {
-		// 先頭の/より前の文字列を、.で分割して配列に格納する。
-		const ipArray = ip.split('.');
-		// ipArrayについて、それぞれ二進数に変換し、それらを文字列連結する
-		const ipBinArray: Array<string> = ipArray.map((v) => parseInt(v, 10).toString(2));
-		// それぞれについて、8ケタに満たない場合は、0で埋める
-		const ipBinArrayPadded: Array<string> = ipBinArray.map((v) => ('00000000000000000000000000000000').slice(0, 8 - v.length) + v);
-		// 配列を連結する
-		const ipBin: string = ipBinArrayPadded.join('');
-		return BigInt(parseInt(ipBin, 2));
+		const dividedIp = ip.split('.').reverse();
+		const byte = 8;
+	
+		return BigInt(dividedIp.reduce((accumulator, v, idx) => {
+			const binary = (parseInt(v, 10) << (byte * idx)) >>> 0;
+			return accumulator + binary;
+		}, 0));
 	}
 
 	/**
