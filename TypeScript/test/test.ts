@@ -9,13 +9,13 @@ describe('CalcIpクラスのテスト', () => {
 	describe('CIDR形式での入力', () => {
 		const input = '172.16.0.254/16';
 		const calc = new CalcIp(input);
-		it('IPを2進数表記にパースができている', () => {
+		it('IPを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b10101100000100000000000011111110));
 		});
 		it('IPアドレスを元の10進表記に戻せる', () => {
 			expect(calc.getBinIpObj().ip.addToDottedDecimalNotation()).deep.equal('172.16.0.254');
 		});
-		it('サブネットマスクを2進数表記にパースができている', () => {
+		it('サブネットマスクを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111111111110000000000000000));
 		});
 		it('マスクビットの取得ができる', () => {
@@ -38,10 +38,10 @@ describe('CalcIpクラスのテスト', () => {
 		const inputIp = '10.128.32.1';
 		const inputSubnet = '255.240.0.0';
 		const calc = new CalcIp(inputIp, inputSubnet);
-		it('IPを2進数表記にパースができている', () => {
+		it('IPを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b00001010100000000010000000000001));
 		});
-		it('サブネットマスクを2進数表記にパースができている', () => {
+		it('サブネットマスクを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111111100000000000000000000));
 		});
 		it('マスクビットの取得ができる', () => {

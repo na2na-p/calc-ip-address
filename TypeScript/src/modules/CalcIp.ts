@@ -74,7 +74,7 @@ export class CalcIp {
 	/**
      * IPアドレスを二進数の形式の文字列で返すメソッド。
      * @param ip IPアドレスを表す文字列 例: "192.168.0.1"
-     * @return {string} IPアドレスを表す2進数の文字列 例: "11000000101010000000000000001"
+     * @return {bigint} IPアドレスを表す10進数
      */
 	private parseIp(ip: string): bigint {
 		const dividedIp = ip.split('.').reverse();
