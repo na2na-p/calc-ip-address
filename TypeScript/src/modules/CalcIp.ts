@@ -38,7 +38,7 @@ export class CalcIp {
 	/**
      * サブネットマスクを都合のいい形の文字列で返すメソッド。
      * @param subnet サブネットマスク(3ケタ区切りのアレ) 例: "255.255.255.0"
-     * @return {string} サブネットマスクを表す2進数の文字列 例: "11111111111111111111111111110000"
+     * @return {bigint} 
      */
 	private parseSubnet(subnet: string): bigint {
 		// 実はparseIp()と一緒

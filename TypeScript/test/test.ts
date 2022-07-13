@@ -10,6 +10,7 @@ describe('CalcIpクラスのテスト', () => {
 		const input = '172.16.0.254/16';
 		const calc = new CalcIp(input);
 		it('IPを10進数に変換ができている', () => {
+			console.log(calc.getBinIpObj().ip);
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b10101100000100000000000011111110));
 		});
 		it('IPアドレスを元の10進表記に戻せる', () => {

@@ -15,6 +15,8 @@ if (args.length < 2 || args.length > 4) {
 if (args.length === 2) {
 	const serverIp = new CalcIp(args[0]);
 	const clientIp = new CalcIp(args[1]);
+	console.log(serverIp.getBinIpObj());
+	console.log(clientIp.getBinIpObj());
 	const compare = new Compare(serverIp, clientIp);
 } else {
 	const serverIp = new CalcIp(args[0], args[1]);
