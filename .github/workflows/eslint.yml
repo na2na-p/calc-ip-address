@@ -1,7 +1,10 @@
-name: mocha
-on: push
+name: ESLint
+on:
+    push:
+        branches-ignore:
+            - main
 jobs:
-    mocha:
+    ESLint:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -12,7 +15,5 @@ jobs:
                   node-version: 18.x
             - name: ci
               run: cd TypeScript && yarn install --immutable --immutable-cache --check-cache
-            - name: build & test
-              run: cd TypeScript && yarn build:test
-            - name: mocha
-              run: cd TypeScript && yarn mocha
+            - name: ESLint
+              run: cd TypeScript && yarn lint
