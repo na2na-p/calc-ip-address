@@ -3,8 +3,7 @@ name: clippy
 on: [push]
 
 jobs:
-    test:
-        name: run test
+    clippy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -21,8 +20,8 @@ jobs:
                   components: rustfmt, clippy
             - uses: actions-rs/cargo@v1
               with:
-                  command: fmt
+                  command: cd Rust && fmt
                   args: --all -- --check
             - uses: actions-rs/cargo@v1
               with:
-                  command: clippy
+                  command: cd Rust && clippy
