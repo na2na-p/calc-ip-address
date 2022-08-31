@@ -57,8 +57,9 @@ export class CalcIp {
 	private parseSubnetFromCidr(cidr: string): bigint {
 		// -1をビットシフトして、サブネットマスクを求める。
 		const subnet =
-			BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr));
-		return subnet ^ 4294967295n;
+			(BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr))) << BigInt(32 - parseInt(cidr));
+		console.log(subnet.toString(2));
+		return subnet;
 	}
 
 	/**
