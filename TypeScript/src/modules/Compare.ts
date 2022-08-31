@@ -32,8 +32,12 @@ export class Compare {
 
 	private checkCanReach(myHost: CalcIp, distHost: CalcIp): boolean {
 		// 自身がネットワークアドレス or ブロードキャストアドレスの場合はfalse
-
 		if (myHost.ip === myHost.networkAddress || myHost.ip === myHost.broadcastAddress) {
+			return false;
+		}
+
+		// 自身のネットワークアドレスと相手のIPが一致したらfalse
+		if (myHost.ip === distHost.ip) {
 			return false;
 		}
 

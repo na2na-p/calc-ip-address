@@ -81,32 +81,69 @@ const compareFail = new CalcIp(compareToIp, compareFailSubnet);
 
 describe('Compareクラスのテスト', () => {
 	const compareSucessBoth = new Compare(calcWithCIDR, compareSucess);
-	describe('双方ともに疎通可能', () => {
-		it('疎通確認結果: source -> dist', () => {
-			expect(compareSucessBoth.result.sourceToDist).deep.equal(true);
+	describe('正常系', () => {
+		describe('双方ともに疎通可能', () => {
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareSucessBoth.result.sourceToDist).deep.equal(true);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareSucessBoth.result.distToSource).deep.equal(true);
+			});
 		});
-		it('疎通確認結果: dist -> source', () => {
-			expect(compareSucessBoth.result.distToSource).deep.equal(true);
+		describe('双方ともに疎通不可', () => {
+			const compareFailBoth = new Compare(calcWithCIDR, compareFail);
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareFailBoth.result.sourceToDist).deep.equal(false);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareFailBoth.result.distToSource).deep.equal(false);
+			});
+		});
+		describe('サーバからクライアントのみ通信可', () => {
+			const server = new CalcIp('192.168.144.2', '255.255.0.0');
+			const client = new CalcIp('192.168.130.130', '255.255.240.0');
+			const compareSucessSource = new Compare(server, client);
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareSucessSource.result.sourceToDist).deep.equal(true);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareSucessSource.result.distToSource).deep.equal(false);
+			});
 		});
 	});
-	describe('双方ともに疎通不可', () => {
-		const compareFailBoth = new Compare(calcWithCIDR, compareFail);
-		it('疎通確認結果: source -> dist', () => {
-			expect(compareFailBoth.result.sourceToDist).deep.equal(false);
+	describe('異常系', () => {
+		describe('どちらか片方のIPがネットワークアドレス', () => {
+			const server = new CalcIp('192.168.130.2', '255.255.255.0');
+			const client = new CalcIp('192.168.130.0', '255.255.255.0');
+			const compareSucessSource = new Compare(server, client);
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareSucessSource.result.sourceToDist).deep.equal(false);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareSucessSource.result.distToSource).deep.equal(false);
+			});
 		});
-		it('疎通確認結果: dist -> source', () => {
-			expect(compareFailBoth.result.distToSource).deep.equal(false);
+		describe('どちらか片方のIPがブロードキャストアドレス', () => {
+			const server = new CalcIp('192.168.130.255', '255.255.255.0');
+			const client = new CalcIp('192.168.130.2', '255.255.255.0');
+			const compareSucessSource = new Compare(server, client);
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareSucessSource.result.sourceToDist).deep.equal(false);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareSucessSource.result.distToSource).deep.equal(false);
+			});
 		});
-	});
-	describe('サーバからクライアントのみ通信可', () => {
-		const server = new CalcIp('192.168.144.2', '255.255.0.0');
-		const client = new CalcIp('192.168.130.130', '255.255.240.0');
-		const compareSucessSource = new Compare(server, client);
-		it('疎通確認結果: source -> dist', () => {
-			expect(compareSucessSource.result.sourceToDist).deep.equal(true);
-		});
-		it('疎通確認結果: dist -> source', () => {
-			expect(compareSucessSource.result.distToSource).deep.equal(false);
+		describe('どちらのIPも同一', () => {
+			const server = new CalcIp('192.168.130.2', '255.255.240.0');
+			const client = new CalcIp('192.168.130.2', '255.255.255.0');
+			const compareSucessSource = new Compare(server, client);
+			it('疎通確認結果: source -> dist', () => {
+				expect(compareSucessSource.result.sourceToDist).deep.equal(false);
+			});
+			it('疎通確認結果: dist -> source', () => {
+				expect(compareSucessSource.result.distToSource).deep.equal(false);
+			});
 		});
 	});
 });
