@@ -2,7 +2,6 @@ import {expect} from 'chai';
 import {describe, it} from 'mocha';
 
 import {CalcIp} from '../built/modules/CalcIp.js';
-import '../built/extensions/bigint.extensions.js';
 
 // mochaを利用したテストコード
 describe('CalcIpクラスのテスト', () => {
@@ -30,9 +29,9 @@ describe('CalcIpクラスのテスト', () => {
 		it('ホストアドレス部の取得ができる', () => {
 			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000000000001111111111111111));
 		});
-		it('ホストアドレス部を10進表記にできる', () => {
-			expect(calc.getBinIpObj().hostAddress.addToDottedDecimalNotation()).deep.equal('0.0.255.255');
-		});
+		// it('ホストアドレス部を10進表記にできる', () => {
+		// 	expect(calc.getBinIpObj().hostAddress.addToDottedDecimalNotation()).deep.equal('0.0.255.255');
+		// });
 		it('ブロードキャストアドレスの取得ができる', () => {
 			expect(calc.getBinIpObj().broadcastAddress).deep.equal(BigInt(0b10101100000100001111111111111111));
 		});
@@ -60,7 +59,7 @@ describe('CalcIpクラスのテスト', () => {
 			expect(calc.getBinIpObj().networkAddress).deep.equal(BigInt(0b00001010000000000000000000000000));
 		});
 		it('ネットワークアドレスを10進表記に戻せる', () => {
-			expect(calc.getBinIpObj().networkAddress.addToDottedDecimalNotation()).deep.equal('10.0.0.0');
+			expect(calc.networkAddressString()).deep.equal('10.0.0.0');
 		});
 		it('ホストアドレス部の取得ができる', () => {
 			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000111111111111111111111111));
