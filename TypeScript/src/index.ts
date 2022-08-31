@@ -3,7 +3,6 @@ const args = process.argv.slice(2);
 
 import { CalcIp } from '@modules/CalcIp.js';
 import { Compare } from '@modules/Compare.js';
-import '@/extensions/bigint.extensions.js';
 
 // 引数が2個ならtrue,4個ならfalseを返す。
 // そうでなければErrorをthrowする。
@@ -15,22 +14,10 @@ if (args.length < 2 || args.length > 4) {
 if (args.length === 2) {
 	const serverIp = new CalcIp(args[0]);
 	const clientIp = new CalcIp(args[1]);
-	console.log(serverIp.getBinIpObj());
-	console.log(clientIp.getBinIpObj());
-	console.log(serverIp.subnetString());
-	console.log(clientIp.subnetString());
-	console.log(serverIp.networkAddressString());
-	console.log(clientIp.networkAddressString());
-
 	const compare = new Compare(serverIp, clientIp);
+	console.log(compare.result);
 } else {
 	const serverIp = new CalcIp(args[0], args[1]);
 	const clientIp = new CalcIp(args[2], args[3]);
-	console.log(serverIp.getBinIpObj());
-	console.log(clientIp.getBinIpObj());
-	console.log(serverIp.subnetString());
-	console.log(clientIp.subnetString());
-	console.log(serverIp.networkAddressString());
-	console.log(clientIp.networkAddressString());
 	const compare = new Compare(serverIp, clientIp);
 }

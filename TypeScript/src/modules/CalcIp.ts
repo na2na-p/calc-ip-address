@@ -11,13 +11,13 @@ export class CalcIp {
 	broadcastAddress: ipBin;
 	hostAddress: ipBin;
 	ipString(): string {
-		return this.addToDottedDecimalNotation(this.ip);
+		return CalcIp.addToDottedDecimalNotation(this.ip);
 	}
 	subnetString(): string {
-		return this.addToDottedDecimalNotation(this.subnet);
+		return CalcIp.addToDottedDecimalNotation(this.subnet);
 	}
 	networkAddressString(): string {
-		return this.addToDottedDecimalNotation(this.networkAddress);
+		return CalcIp.addToDottedDecimalNotation(this.networkAddress);
 	}
 
 	constructor(ip: string, subnet?: string) {
@@ -96,7 +96,7 @@ export class CalcIp {
 		};
 	}
 
-	public addToDottedDecimalNotation (ipSrc: ipBin): string {
+	static addToDottedDecimalNotation (ipSrc: ipBin): string {
 		// 2進数表記で表されたIPアドレスを、3ケタ区切りの文字列に変換する。
 		// 256進数と解釈できるのでいい感じにする。
 		const ipString: string[] = [];
