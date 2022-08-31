@@ -111,7 +111,7 @@ describe('Compareクラスのテスト', () => {
 			});
 		});
 	});
-	describe('異常系', () => {
+	describe('準正常系', () => {
 		describe('どちらか片方のIPがネットワークアドレス', () => {
 			const server = new CalcIp('192.168.130.2', '255.255.255.0');
 			const client = new CalcIp('192.168.130.0', '255.255.255.0');
