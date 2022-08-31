@@ -14,7 +14,7 @@ describe('CalcIpクラスのテスト', () => {
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b10101100000100000000000011111110));
 		});
 		it('IPアドレスを元の10進表記に戻せる', () => {
-			expect(calc.getBinIpObj().ip.addToDottedDecimalNotation()).deep.equal('172.16.0.254');
+			expect(calc.ipString()).deep.equal('172.16.0.254');
 		});
 		it('サブネットマスクを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111111111110000000000000000));
