@@ -9,7 +9,10 @@ devcontainer も準備してあるので Docker 使用可能ならそちらか�
 cd TypeScript
 yarn install
 yarn build
-yarn start
+---
+yarn start [IP(CIDR形式)] [IP(CIDR形式)]
+あるいは
+yarn start [IP] [SUBNETMASK] [IP] [SUBNETMASK]
 ```
 
 # テストコードもあります。
