@@ -1,6 +1,6 @@
 import { CalcIp } from './CalcIp.js';
 
-import { resultType } from '@/types/types.js';
+import { resultType, ipBin } from '@/types/types.js';
 
 
 export class Compare {
@@ -16,12 +16,14 @@ export class Compare {
 			source: {
 				ip: this.source.ipString(),
 				subnet: this.source.subnetString(),
-				netAddr: this.source.networkAddressString()
+				netAddr: this.source.networkAddressString(),
+				otherNetAddr: CalcIp.addToDottedDecimalNotation(this.calcOtherNetAddr(this.source, this.dist))
 			},
 			dist: {
 				ip: this.dist.ipString(),
 				subnet: this.dist.subnetString(),
-				netAddr: this.dist.networkAddressString()
+				netAddr: this.dist.networkAddressString(),
+				otherNetAddr: CalcIp.addToDottedDecimalNotation(this.calcOtherNetAddr(this.dist, this.source))
 			},
 			result: {
 				sourceToDist: this.checkCanReach(this.source, this.dist),
@@ -43,5 +45,10 @@ export class Compare {
 		}
 
 		return false;
+	}
+
+	private calcOtherNetAddr(myHost: CalcIp, distHost: CalcIp): ipBin {
+		// myHostのsubnetを利用してdistHostのネットワークアドレスを計算する
+		return distHost.ip & myHost.subnet;
 	}
 }

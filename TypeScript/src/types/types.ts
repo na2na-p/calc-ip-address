@@ -15,11 +15,13 @@ export type resultType = {
 		ip: string;
 		subnet: string;
 		netAddr: string;
+		otherNetAddr: string;
 	},
 	dist: {
 		ip: string;
 		subnet: string;
 		netAddr: string;
+		otherNetAddr: string;
 	},
 	result: {
 		sourceToDist: boolean;
