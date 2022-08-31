@@ -23,8 +23,6 @@ export type resultType = {
 		netAddr: string;
 		otherNetAddr: string;
 	},
-	result: {
-		sourceToDist: boolean;
-		distToSource: boolean;
-	}
+	sourceToDist: boolean;
+	distToSource: boolean;
 };

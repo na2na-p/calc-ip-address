@@ -25,10 +25,8 @@ export class Compare {
 				netAddr: this.dist.networkAddressString(),
 				otherNetAddr: CalcIp.addToDottedDecimalNotation(this.calcOtherNetAddr(this.dist, this.source))
 			},
-			result: {
-				sourceToDist: this.checkCanReach(this.source, this.dist),
-				distToSource: this.checkCanReach(this.dist ,this.source)
-			}
+			sourceToDist: this.checkCanReach(this.source, this.dist),
+			distToSource: this.checkCanReach(this.dist ,this.source)
 		};
 	}
 
