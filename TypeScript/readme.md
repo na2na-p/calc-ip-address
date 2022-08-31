@@ -1,7 +1,10 @@
 # 実行環境
-Node.jsとパッケージマネージャとしてyarnが必要になります。
+
+Node.js とパッケージマネージャとして yarn が必要になります。  
+devcontainer も準備してあるので Docker 使用可能ならそちらからどうぞ。
 
 # ビルドと実行
+
 ```bash
 cd TypeScript
 yarn install
@@ -10,7 +13,9 @@ yarn start
 ```
 
 # テストコードもあります。
+
 何してるかはむしろここ見たほうがいい気がしないでもないです。
+
 ```bash
 cd TypeScript
 yarn build:test
@@ -18,5 +23,6 @@ yarn test
 ```
 
 # 備考
-TypeScript(JavaScript)において、32ビット整数に対してビット演算が適用され、結果が32ビット符号あり整数として再解釈されます。  
-よってnumber型だと非常に都合が悪いのでbigint型を使用しています。
+
+TypeScript(JavaScript)において、32 ビット整数に対してビット演算が適用され、結果が 32 ビット符号あり整数として再解釈されます。  
+よって number 型だと非常に都合が悪いので bigint 型を使用しています。
