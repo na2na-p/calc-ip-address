@@ -18,6 +18,7 @@ if (args.length === 2) {
 	console.log(serverIp.getBinIpObj());
 	console.log(clientIp.getBinIpObj());
 	console.log(serverIp.subnetString());
+	console.log(clientIp.subnetString());
 	const compare = new Compare(serverIp, clientIp);
 } else {
 	const serverIp = new CalcIp(args[0], args[1]);

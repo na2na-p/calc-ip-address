@@ -6,7 +6,7 @@ import { ipObj, ipBin } from '@/types/types.js';
 export class CalcIp {
 	ip: ipBin;
 	subnet: ipBin;
-	cidr: number | undefined;
+	cidr?: number;
 	networkAddress: ipBin;
 	broadcastAddress: ipBin;
 	hostAddress: ipBin;

@@ -37,25 +37,25 @@ describe('CalcIpクラスのテスト', () => {
 	});
 	describe('IPアドレス + サブネットマスク形式での入力', () => {
 		const inputIp = '10.128.32.1';
-		const inputSubnet = '255.240.0.0';
+		const inputSubnet = '255.0.0.0';
 		const calc = new CalcIp(inputIp, inputSubnet);
 		it('IPを10進数に変換ができている', () => {
 			expect(calc.getBinIpObj().ip).deep.equal(BigInt(0b00001010100000000010000000000001));
 		});
 		it('サブネットマスクを10進数に変換ができている', () => {
-			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111111100000000000000000000));
+			expect(calc.getBinIpObj().subnet).deep.equal(BigInt(0b11111111000000000000000000000000));
 		});
 		// it('マスクビットの取得ができる', () => {
 		// 	expect(calc.getBinIpObj().cidr).deep.equal(12);
 		// });
 		it('ネットワークアドレスの取得ができる', () => {
-			expect(calc.getBinIpObj().networkAddress).deep.equal(BigInt(0b00001010100000000000000000000000));
+			expect(calc.getBinIpObj().networkAddress).deep.equal(BigInt(0b00001010000000000000000000000000));
 		});
 		it('ホストアドレス部の取得ができる', () => {
-			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000000011111111111111111111));
+			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000111111111111111111111111));
 		});
 		it('ブロードキャストアドレスの取得ができる', () => {
-			expect(calc.getBinIpObj().broadcastAddress).deep.equal(BigInt(0b00001010100011111111111111111111));
+			expect(calc.getBinIpObj().broadcastAddress).deep.equal(BigInt(0b00001010111111111111111111111111));
 		});
 	});
 });
