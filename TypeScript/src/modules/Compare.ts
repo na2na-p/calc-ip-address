@@ -1,10 +1,10 @@
-import { ipObj } from '@/types/types.js';
+import { CalcIp } from './CalcIp.js';
 
 export class Compare {
-	private server: ipObj;
-	private client: ipObj;
+	private server: CalcIp;
+	private client: CalcIp;
 
-	constructor(server: ipObj, client: ipObj) {
+	constructor(server: CalcIp, client: CalcIp) {
 		this.server = server;
 		this.client = client;
 		

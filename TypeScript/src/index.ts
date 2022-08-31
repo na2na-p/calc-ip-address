@@ -19,11 +19,18 @@ if (args.length === 2) {
 	console.log(clientIp.getBinIpObj());
 	console.log(serverIp.subnetString());
 	console.log(clientIp.subnetString());
+	console.log(serverIp.networkAddressString());
+	console.log(clientIp.networkAddressString());
+
 	const compare = new Compare(serverIp, clientIp);
 } else {
 	const serverIp = new CalcIp(args[0], args[1]);
 	const clientIp = new CalcIp(args[2], args[3]);
-	console.log(serverIp.networkAddress.addToDottedDecimalNotation());
-	console.log(clientIp.networkAddress.addToDottedDecimalNotation());
+	console.log(serverIp.getBinIpObj());
+	console.log(clientIp.getBinIpObj());
+	console.log(serverIp.subnetString());
+	console.log(clientIp.subnetString());
+	console.log(serverIp.networkAddressString());
+	console.log(clientIp.networkAddressString());
 	const compare = new Compare(serverIp, clientIp);
 }

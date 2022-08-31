@@ -16,6 +16,9 @@ export class CalcIp {
 	subnetString(): string {
 		return this.addToDottedDecimalNotation(this.subnet);
 	}
+	networkAddressString(): string {
+		return this.addToDottedDecimalNotation(this.networkAddress);
+	}
 
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {
@@ -58,7 +61,6 @@ export class CalcIp {
 		// -1をビットシフトして、サブネットマスクを求める。
 		const subnet =
 			(BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr))) << BigInt(32 - parseInt(cidr));
-		console.log(subnet.toString(2));
 		return subnet;
 	}
 
@@ -94,7 +96,7 @@ export class CalcIp {
 		};
 	}
 
-	private addToDottedDecimalNotation (ipSrc: ipBin): string {
+	public addToDottedDecimalNotation (ipSrc: ipBin): string {
 		// 2進数表記で表されたIPアドレスを、3ケタ区切りの文字列に変換する。
 		// 256進数と解釈できるのでいい感じにする。
 		const ipString: string[] = [];

@@ -59,6 +59,9 @@ describe('CalcIpクラスのテスト', () => {
 		it('ネットワークアドレスの取得ができる', () => {
 			expect(calc.getBinIpObj().networkAddress).deep.equal(BigInt(0b00001010000000000000000000000000));
 		});
+		it('ネットワークアドレスを10進表記に戻せる', () => {
+			expect(calc.getBinIpObj().networkAddress.addToDottedDecimalNotation()).deep.equal('10.0.0.0');
+		});
 		it('ホストアドレス部の取得ができる', () => {
 			expect(calc.getBinIpObj().hostAddress).deep.equal(BigInt(0b00000000111111111111111111111111));
 		});
