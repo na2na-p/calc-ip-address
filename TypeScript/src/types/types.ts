@@ -7,7 +7,6 @@ export type ipObj = {
     cidr?: number;
 }
 
-// ipBin型は、bigint型である。
 export type ipBin = bigint;
 
 export type resultType = {
