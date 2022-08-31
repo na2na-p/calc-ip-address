@@ -3,6 +3,7 @@ const args = process.argv.slice(2);
 
 import { CalcIp } from '@modules/CalcIp.js';
 import { Compare } from '@modules/Compare.js';
+import { Output } from '@modules/Output.js';
 
 // 引数が2個ならtrue,4個ならfalseを返す。
 // そうでなければErrorをthrowする。
@@ -11,13 +12,21 @@ if (args.length < 2 || args.length > 4) {
 }
 
 // TODO: 動的にやる(CIDRとそうでないの混在に対応させる。)
-if (args.length === 2) {
-	const serverIp = new CalcIp(args[0]);
-	const clientIp = new CalcIp(args[1]);
-	const compare = new Compare(serverIp, clientIp);
-	console.log(compare.result);
-} else {
-	const serverIp = new CalcIp(args[0], args[1]);
-	const clientIp = new CalcIp(args[2], args[3]);
-	const compare = new Compare(serverIp, clientIp);
-}
+
+const serverIp = (() => {
+	if (args.length === 2) {
+		return new CalcIp(args[0]);
+	} else {
+		return new CalcIp(args[0], args[1]);
+	}
+})();
+
+const clientIp = (() => {
+	if (args.length === 2) {
+		return new CalcIp(args[1]);
+	} else {
+		return new CalcIp(args[2], args[3]);
+	}
+})();
+
+new Output((new Compare(serverIp, clientIp)).result);

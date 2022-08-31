@@ -1,21 +1,7 @@
 import { CalcIp } from './CalcIp.js';
 
-type resultType = {
-	source: {
-		ip: string;
-		subnet: string;
-		netAddr: string;
-	},
-	dist: {
-		ip: string;
-		subnet: string;
-		netAddr: string;
-	},
-	result: {
-		sourceToDist: boolean;
-		distToSource: boolean;
-	}
-};
+import { resultType } from '@/types/types.js';
+
 
 export class Compare {
 	private source: CalcIp;
@@ -55,7 +41,7 @@ export class Compare {
 		if (myHost.networkAddress < distHost.ip && distHost.ip < myHost.broadcastAddress) {
 			return true;
 		}
-		
+
 		return false;
 	}
 }

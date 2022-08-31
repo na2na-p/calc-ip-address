@@ -9,3 +9,20 @@ export type ipObj = {
 
 // ipBin型は、bigint型である。
 export type ipBin = bigint;
+
+export type resultType = {
+	source: {
+		ip: string;
+		subnet: string;
+		netAddr: string;
+	},
+	dist: {
+		ip: string;
+		subnet: string;
+		netAddr: string;
+	},
+	result: {
+		sourceToDist: boolean;
+		distToSource: boolean;
+	}
+};
