@@ -12,3 +12,16 @@ fn main() {
         panic!("正しい表示形式ではありません。CIDR形式と他の形式を混在させることはできません。");
     }
 }
+
+struct IpInfo {
+    ip: i32,
+    subnet: i32,
+    cidr: Option<i8>,
+    network_address: i32,
+    broadcast_address: i32,
+    host_address: i32,
+}
+
+impl IpInfo {
+    fn new(ip: String, cidr: Option<String>) {}
+}
