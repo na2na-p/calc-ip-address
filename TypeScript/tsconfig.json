@@ -15,9 +15,18 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"noUnusedLocals": false,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"noImplicitAny": true,
+		"exactOptionalPropertyTypes": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
 		"noFallthroughCasesInSwitch": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitThis": true,
 		"skipLibCheck": true,
 		"noImplicitReturns": true,
 		"resolveJsonModule": true,
@@ -27,7 +36,7 @@
 		"emitDecoratorMetadata": true,
 		"paths": {
 			"@/*": ["src/*"],
-			"@modules/*": ["src/modules/*"],
+			"@modules/*": ["src/modules/*"]
 		}
 	},
 	"include": ["src/**/*.ts"]

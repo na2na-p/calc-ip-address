@@ -22,10 +22,10 @@ export class CalcIp {
 
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {
-			const subnetCidr = ip.split('/')[1];
+			const subnetCidr = ip.split('/')[1] as string;
 			this.subnet = this.parseSubnetFromCidr(subnetCidr);
 			this.cidr = parseInt(subnetCidr);
-			const ipStr = ip.split('/')[0];
+			const ipStr = ip.split('/')[0] as string;
 			this.ip = this.parseIp(ipStr);
 		} else {
 			this.subnet = this.parseSubnet(subnet);
