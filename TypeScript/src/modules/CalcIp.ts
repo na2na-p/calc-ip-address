@@ -102,8 +102,8 @@ export class CalcIp {
 		const ipString: string[] = [];
 		let tempIp = ipSrc;
 		for (let i = 4; i > 0; i--) {
-			const ip = tempIp / BigInt(256 ** (i - 1));
-			tempIp = tempIp % BigInt(256 ** (i - 1));
+			const ip = tempIp >> BigInt(8 * (i - 1));
+			tempIp = tempIp - (ip << BigInt(8 * (i - 1)));
 			ipString.push(ip.toString());
 			if (i > 1) {
 				ipString.push('.');
