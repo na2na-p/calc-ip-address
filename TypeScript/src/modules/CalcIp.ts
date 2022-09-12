@@ -1,4 +1,5 @@
-import { ipObj, ipBin } from '@/types/types.js';
+import {ipBin, ipObj} from '@/types/types.js';
+
 /**
  * 引数として渡されたIPアドレスのネットワークアドレスを計算するクラス。
  * @class CalcIp
@@ -59,9 +60,7 @@ export class CalcIp {
 	 */
 	private parseSubnetFromCidr(cidr: string): bigint {
 		// -1をビットシフトして、サブネットマスクを求める。
-		const subnet =
-			(BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr))) << BigInt(32 - parseInt(cidr));
-		return subnet;
+		return (BigInt(Math.pow(2, 32) - 1) >> BigInt(32 - parseInt(cidr))) << BigInt(32 - parseInt(cidr));
 	}
 
 	/**
