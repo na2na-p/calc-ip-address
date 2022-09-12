@@ -5,47 +5,47 @@ import {ipBin, ipObj} from '@/types/types.js';
  * @class CalcIp
  */
 export class CalcIp {
-	ip: ipBin;
-	subnet: ipBin;
-	cidr?: number;
-	networkAddress: ipBin;
-	broadcastAddress: ipBin;
-	hostAddress: ipBin;
+	#ip: ipBin;
+	#subnet: ipBin;
+	#cidr?: number;
+	#networkAddress: ipBin;
+	#broadcastAddress: ipBin;
+	#hostAddress: ipBin;
 	ipString(): string {
-		return CalcIp.addToDottedDecimalNotation(this.ip);
+		return CalcIp.addToDottedDecimalNotation(this.#ip);
 	}
 	subnetString(): string {
-		return CalcIp.addToDottedDecimalNotation(this.subnet);
+		return CalcIp.addToDottedDecimalNotation(this.#subnet);
 	}
 	networkAddressString(): string {
-		return CalcIp.addToDottedDecimalNotation(this.networkAddress);
+		return CalcIp.addToDottedDecimalNotation(this.#networkAddress);
 	}
 
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {
 			const subnetCidr = ip.split('/')[1] as string;
-			this.subnet = this.parseSubnetFromCidr(subnetCidr);
-			this.cidr = parseInt(subnetCidr);
+			this.#subnet = this.parseSubnetFromCidr(subnetCidr);
+			this.#cidr = parseInt(subnetCidr);
 			const ipStr = ip.split('/')[0] as string;
-			this.ip = this.parseIp(ipStr);
+			this.#ip = this.parseIp(ipStr);
 		} else {
-			this.subnet = this.parseSubnet(subnet);
-			this.ip = this.parseIp(ip);
+			this.#subnet = this.parseSubnet(subnet);
+			this.#ip = this.parseIp(ip);
 		}
 
 		// ネットワークアドレスを計算する。
-		this.networkAddress = this.ip & this.subnet;
+		this.#networkAddress = this.#ip & this.#subnet;
 
 		// ホストアドレス部の取り出し
-		this.hostAddress = this.subnet ^ 4294967295n;
+		this.#hostAddress = this.#subnet ^ 4294967295n;
 
 		// ブロードキャストアドレス
-		this.broadcastAddress = this.networkAddress | this.hostAddress;
+		this.#broadcastAddress = this.#networkAddress | this.#hostAddress;
 	}
 
 	/**
 	 * サブネットマスクを都合のいい形の文字列で返すメソッド。
-	 * @param subnet サブネットマスク(3ケタ区切りのアレ) 例: "255.255.255.0"
+	 * @param #subnet サブネットマスク(3ケタ区切りのアレ) 例: "255.255.255.0"
 	 * @return {bigint}
 	 */
 	private parseSubnet(subnet: string): bigint {
@@ -55,7 +55,7 @@ export class CalcIp {
 
 	/**
 	 * CIDR形式のあの末尾の数字からサブネットマスクを求めるメソッド
-	 * @param cidr CIDR形式のあの末尾の数字 例: "24"
+	 * @param #cidr CIDR形式のあの末尾の数字 例: "24"
 	 * @return {bigint} サブネットマスクを表す10進数の文字列
 	 */
 	private parseSubnetFromCidr(cidr: string): bigint {
@@ -65,7 +65,7 @@ export class CalcIp {
 
 	/**
 	 * IPアドレスを二進数の形式の文字列で返すメソッド。
-	 * @param ip IPアドレスを表す文字列 例: "192.168.0.1"
+	 * @param #ip IPアドレスを表す文字列 例: "192.168.0.1"
 	 * @return {bigint} IPアドレスを表す10進数
 	 */
 	private parseIp(ip: string): bigint {
@@ -86,12 +86,12 @@ export class CalcIp {
 	 */
 	public getBinIpObj(): ipObj {
 		return {
-			ip: this.ip,
-			subnet: this.subnet,
-			networkAddress: this.networkAddress,
-			broadcastAddress: this.broadcastAddress,
-			hostAddress: this.hostAddress,
-			cidr: this.cidr,
+			ip: this.#ip,
+			subnet: this.#subnet,
+			networkAddress: this.#networkAddress,
+			broadcastAddress: this.#broadcastAddress,
+			hostAddress: this.#hostAddress,
+			cidr: this.#cidr,
 		};
 	}
 
