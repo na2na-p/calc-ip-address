@@ -20,6 +20,24 @@ export class CalcIp {
 	networkAddressString(): string {
 		return CalcIp.addToDottedDecimalNotation(this.#networkAddress);
 	}
+	getIp(): ipBin {
+		return this.#ip;
+	}
+	getSubnet(): ipBin {
+		return this.#subnet;
+	}
+	getCidr(): number | undefined {
+		return this.#cidr;
+	}
+	getNetworkAddress(): ipBin {
+		return this.#networkAddress;
+	}
+	getBroadcastAddress(): ipBin {
+		return this.#broadcastAddress;
+	}
+	getHostAddress(): ipBin {
+		return this.#hostAddress;
+	}
 
 	constructor(ip: string, subnet?: string) {
 		if (subnet == undefined) {

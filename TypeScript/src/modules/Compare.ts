@@ -32,17 +32,17 @@ export class Compare {
 
 	private checkCanReach(myHost: CalcIp, distHost: CalcIp): boolean {
 		// 自身がネットワークアドレス or ブロードキャストアドレスの場合はfalse
-		if (myHost.ip === myHost.networkAddress || myHost.ip === myHost.broadcastAddress) {
+		if (myHost.getIp() === myHost.getNetworkAddress() || myHost.getIp() === myHost.getBroadcastAddress()) {
 			return false;
 		}
 
 		// 自身のネットワークアドレスと相手のIPが一致したらfalse
-		if (myHost.ip === distHost.ip) {
+		if (myHost.getIp() === distHost.getIp()) {
 			return false;
 		}
 
 		// networkAddress <= host <= broadcastAddress
-		if (myHost.networkAddress < distHost.ip && distHost.ip < myHost.broadcastAddress) {
+		if (myHost.getNetworkAddress() < distHost.getIp() && distHost.getIp() < myHost.getBroadcastAddress()) {
 			return true;
 		}
 
@@ -51,6 +51,6 @@ export class Compare {
 
 	private calcOtherNetAddr(myHost: CalcIp, distHost: CalcIp): ipBin {
 		// myHostのsubnetを利用してdistHostのネットワークアドレスを計算する
-		return distHost.ip & myHost.subnet;
+		return distHost.getIp() & myHost.getSubnet();
 	}
 }
