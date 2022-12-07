@@ -30,3 +30,5 @@ const clientIp = (() => {
 })();
 
 new Output((new Compare(serverIp, clientIp)).result);
+
+export {CalcIp, Compare, Output}
