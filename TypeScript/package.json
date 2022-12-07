@@ -12,8 +12,7 @@
 		"build:test": "yarn tsc -p tsconfig.json && yarn tsc -p test/tsconfig.json && yarn tsc-alias -p tsconfig.json",
 		"lint": "eslint src/**/*.ts",
 		"lint:fix": "eslint src/**/*.ts --fix",
-		"test": "yarn mocha",
-		"postinstall": "yarn build"
+		"test": "yarn mocha"
 	},
 	"devDependencies": {
 		"@types/chai": "4.3.4",
