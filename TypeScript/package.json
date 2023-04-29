@@ -16,7 +16,7 @@
 		"library:build": "yarn tsc -p tsconfig.json && tsc-alias -p tsconfig.json"
 	},
 	"devDependencies": {
-		"@types/chai": "4.3.4",
+		"@types/chai": "4.3.5",
 		"@types/mocha": "10.0.1",
 		"@types/node": "18.16.2",
 		"@typescript-eslint/eslint-plugin": "5.59.1",
