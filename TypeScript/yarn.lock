@@ -91,10 +91,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@types/chai@4.3.9":
-  version "4.3.9"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.3.9.tgz#144d762491967db8c6dea38e03d2206c2623feec"
-  integrity sha512-69TtiDzu0bcmKQv3yg1Zx409/Kd7r0b5F1PfpYJfSHzLGtB53547V4u+9iqKYsTu/O2ai6KTb0TInNpvuQ3qmg==
+"@types/chai@4.3.10":
+  version "4.3.10"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.3.10.tgz#2ad2959d1767edee5b0e4efb1a0cd2b500747317"
+  integrity sha512-of+ICnbqjmFCiixUnqRulbylyXQrPqIGf/B3Jax1wIF3DvSheysQxAWvqHhZiW3IQrycvokcLcFQlveGp+vyNg==
 
 "@types/json-schema@^7.0.12":
   version "7.0.12"
@@ -106,10 +106,10 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-10.0.4.tgz#b5331955ebca216604691fd4fcd2dbdc2bd559a4"
   integrity sha512-xKU7bUjiFTIttpWaIZ9qvgg+22O1nmbA+HRxdlR+u6TWsGfmFdXrheJoK4fFxrHNVIOBDvDNKZG+LYBpMHpX3w==
 
-"@types/node@20.8.10":
-  version "20.8.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.10.tgz#a5448b895c753ae929c26ce85cab557c6d4a365e"
-  integrity sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==
+"@types/node@20.9.0":
+  version "20.9.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.9.0.tgz#bfcdc230583aeb891cf51e73cfdaacdd8deae298"
+  integrity sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==
   dependencies:
     undici-types "~5.26.4"
 
