@@ -8,12 +8,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-            - name: Set Node.js 18.x
+              uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+            - name: Set Node.js 20.x
               uses: actions/setup-node@v4
               with:
-                  node-version: 18.x
+                  node-version: 20.x
+            - uses: pnpm/action-setup@v4
+              with:
+                version: 9
             - name: ci
-              run: cd TypeScript && yarn install --immutable --immutable-cache --check-cache
+              run: cd TypeScript && pnpm install
             - name: ESLint
-              run: cd TypeScript && yarn lint
+              run: cd TypeScript && pnpm lint

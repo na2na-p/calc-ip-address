@@ -1,18 +1,18 @@
 # 実行環境
 
-Node.js とパッケージマネージャとして yarn が必要になります。  
+Node.js とパッケージマネージャとして pnpm が必要になります。  
 devcontainer も準備してあるので Docker 使用可能ならそちらからどうぞ。
 
 # ビルドと実行
 
 ```bash
 cd TypeScript
-yarn install
-yarn build
+pnpm install
+pnpm build
 ---
-yarn start [IP(CIDR形式)] [IP(CIDR形式)]
+pnpm start [IP(CIDR形式)] [IP(CIDR形式)]
 あるいは
-yarn start [IP] [SUBNETMASK] [IP] [SUBNETMASK]
+pnpm start [IP] [SUBNETMASK] [IP] [SUBNETMASK]
 ```
 
 # テストコードもあります。
@@ -21,8 +21,8 @@ yarn start [IP] [SUBNETMASK] [IP] [SUBNETMASK]
 
 ```bash
 cd TypeScript
-yarn build:test
-yarn test
+pnpm build:test
+pnpm test
 ```
 
 # 備考
