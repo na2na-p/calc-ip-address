@@ -1,5 +1,5 @@
 {
     "files.eol": "\n",
     "eslint.format.enable": true,
-    "eslint.packageManager": "yarn"
+    "eslint.packageManager": "pnpm"
 }
