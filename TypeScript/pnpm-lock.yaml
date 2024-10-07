@@ -16,11 +16,11 @@ importers:
         specifier: 5.0.0
         version: 5.0.0
       '@types/mocha':
-        specifier: 10.0.8
-        version: 10.0.8
+        specifier: 10.0.9
+        version: 10.0.9
       '@types/node':
-        specifier: 20.16.10
-        version: 20.16.10
+        specifier: 20.16.11
+        version: 20.16.11
       '@typescript-eslint/eslint-plugin':
         specifier: 8.8.1
         version: 8.8.1(@typescript-eslint/parser@8.8.1(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)
@@ -88,11 +88,11 @@ packages:
   '@types/chai@5.0.0':
     resolution: {integrity: sha512-+DwhEHAaFPPdJ2ral3kNHFQXnTfscEEFsUxzD+d7nlcLrFK23JtNjH71RGasTcHb88b4vVi4mTyfpf8u2L8bdA==}
 
-  '@types/mocha@10.0.8':
-    resolution: {integrity: sha512-HfMcUmy9hTMJh66VNcmeC9iVErIZJli2bszuXc6julh5YGuRb/W5OnkHjwLNYdFlMis0sY3If5SEAp+PktdJjw==}
+  '@types/mocha@10.0.9':
+    resolution: {integrity: sha512-sicdRoWtYevwxjOHNMPTl3vSfJM6oyW8o1wXeI7uww6b6xHg8eBznQDNSGBCDJmsE8UMxP05JgZRtsKbTqt//Q==}
 
-  '@types/node@20.16.10':
-    resolution: {integrity: sha512-vQUKgWTjEIRFCvK6CyriPH3MZYiYlNy0fKiEYHWbcoWLEgs4opurGGKlebrTLqdSMIbXImH6XExNiIyNUv3WpA==}
+  '@types/node@20.16.11':
+    resolution: {integrity: sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==}
 
   '@typescript-eslint/eslint-plugin@8.8.1':
     resolution: {integrity: sha512-xfvdgA8AP/vxHgtgU310+WBnLB4uJQ9XdyP17RebG26rLtDrQJV3ZYrcopX91GrHmMoH8bdSwMRh2a//TiJ1jQ==}
@@ -813,9 +813,9 @@ snapshots:
 
   '@types/chai@5.0.0': {}
 
-  '@types/mocha@10.0.8': {}
+  '@types/mocha@10.0.9': {}
 
-  '@types/node@20.16.10':
+  '@types/node@20.16.11':
     dependencies:
       undici-types: 6.19.8
 
