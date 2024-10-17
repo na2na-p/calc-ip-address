@@ -1,4 +1,4 @@
-package test
+package main
 
 import (
 	"testing"
@@ -28,7 +28,7 @@ func TestCompare(t *testing.T) {
 
 			if result.SourceToDist {
 				t.Errorf("疎通確認結果: source -> dist が期待と異なります")
-			}
+				}
 			if result.DistToSource {
 				t.Errorf("疎通確認結果: dist -> source が期待と異なります")
 			}
