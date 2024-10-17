@@ -1,16 +1,15 @@
-package test
+package main
 
 import (
 	"testing"
-	"main"
 )
 
 func TestCompare(t *testing.T) {
 	t.Run("正常系", func(t *testing.T) {
 		t.Run("双方ともに疎通可能", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			client := main.NewCalcIp("192.168.1.2", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.1", "255.255.255.0")
+			client := NewCalcIp("192.168.1.2", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if !result.SourceToDist {
@@ -22,9 +21,9 @@ func TestCompare(t *testing.T) {
 		})
 
 		t.Run("双方ともに疎通不可", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			client := main.NewCalcIp("192.168.2.1", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.1", "255.255.255.0")
+			client := NewCalcIp("192.168.2.1", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if result.SourceToDist {
@@ -36,9 +35,9 @@ func TestCompare(t *testing.T) {
 		})
 
 		t.Run("サーバからクライアントのみ通信可", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.1", "255.255.0.0")
-			client := main.NewCalcIp("192.168.2.1", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.1", "255.255.0.0")
+			client := NewCalcIp("192.168.2.1", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if !result.SourceToDist {
@@ -52,9 +51,9 @@ func TestCompare(t *testing.T) {
 
 	t.Run("異常系", func(t *testing.T) {
 		t.Run("どちらか片方のIPがネットワークアドレス", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.0", "255.255.255.0")
-			client := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.0", "255.255.255.0")
+			client := NewCalcIp("192.168.1.1", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if result.SourceToDist {
@@ -66,9 +65,9 @@ func TestCompare(t *testing.T) {
 		})
 
 		t.Run("どちらか片方のIPがブロードキャストアドレス", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.255", "255.255.255.0")
-			client := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.255", "255.255.255.0")
+			client := NewCalcIp("192.168.1.1", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if result.SourceToDist {
@@ -80,9 +79,9 @@ func TestCompare(t *testing.T) {
 		})
 
 		t.Run("どちらのIPも同一", func(t *testing.T) {
-			server := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			client := main.NewCalcIp("192.168.1.1", "255.255.255.0")
-			compare := main.NewCompare(server, client)
+			server := NewCalcIp("192.168.1.1", "255.255.255.0")
+			client := NewCalcIp("192.168.1.1", "255.255.255.0")
+			compare := NewCompare(server, client)
 			result := compare.Result()
 
 			if result.SourceToDist {
