@@ -3,13 +3,12 @@ package test
 import (
 	"math/big"
 	"testing"
-	"main"
 )
 
 func TestCalcIp(t *testing.T) {
 	t.Run("CIDR形式での入力", func(t *testing.T) {
 		inputWithCIDR := "172.16.0.254/16"
-		calcWithCIDR := main.NewCalcIp(inputWithCIDR, "")
+		calcWithCIDR := NewCalcIp(inputWithCIDR, "")
 
 		if calcWithCIDR.ip.Cmp(big.NewInt(0b10101100000100000000000011111110)) != 0 {
 			t.Errorf("IPを10進数に変換ができていない")
@@ -40,7 +39,7 @@ func TestCalcIp(t *testing.T) {
 	t.Run("IPアドレス + サブネットマスク形式での入力", func(t *testing.T) {
 		inputIp := "10.128.32.1"
 		inputSubnet := "255.0.0.0"
-		calc := main.NewCalcIp(inputIp, inputSubnet)
+		calc := NewCalcIp(inputIp, inputSubnet)
 
 		if calc.ip.Cmp(big.NewInt(0b00001010100000000010000000000001)) != 0 {
 			t.Errorf("IPを10進数に変換ができていない")
