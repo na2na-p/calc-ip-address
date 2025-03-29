@@ -27,6 +27,6 @@
 		"typescript": "5.8.2"
 	},
 	"dependencies": {
-		"tsc-alias": "1.8.12"
+		"tsc-alias": "1.8.13"
 	}
 }
