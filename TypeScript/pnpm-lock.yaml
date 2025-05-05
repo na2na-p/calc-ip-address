@@ -13,14 +13,14 @@ importers:
         version: 1.8.16
     devDependencies:
       '@types/chai':
-        specifier: 5.2.1
-        version: 5.2.1
+        specifier: 5.2.2
+        version: 5.2.2
       '@types/mocha':
         specifier: 10.0.10
         version: 10.0.10
       '@types/node':
-        specifier: 22.15.3
-        version: 22.15.3
+        specifier: 22.15.9
+        version: 22.15.9
       '@typescript-eslint/eslint-plugin':
         specifier: 8.32.0
         version: 8.32.0(@typescript-eslint/parser@8.32.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
@@ -99,8 +99,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@types/chai@5.2.1':
-    resolution: {integrity: sha512-iu1JLYmGmITRzUgNiLMZD3WCoFzpYtueuyAgHTXqgwSRAMIlFTnZqG6/xenkpUGRJEzSfklUTI4GNSzks/dc0w==}
+  '@types/chai@5.2.2':
+    resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
 
   '@types/deep-eql@4.0.2':
     resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
@@ -108,8 +108,8 @@ packages:
   '@types/mocha@10.0.10':
     resolution: {integrity: sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==}
 
-  '@types/node@22.15.3':
-    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
+  '@types/node@22.15.9':
+    resolution: {integrity: sha512-l6QaCgJSJQ0HngL1TjvEY2DlefKggyGeXP1KYvYLBX41ZDPM1FsgDMAr5c+T673NMy7VCptMOzXOuJqf5uB0bA==}
 
   '@typescript-eslint/eslint-plugin@8.32.0':
     resolution: {integrity: sha512-/jU9ettcntkBFmWUzzGgsClEi2ZFiikMX5eEQsmxIAWMOn4H3D4rvHssstmAHGVvrYnaMqdWWWg0b5M6IN/MTQ==}
@@ -904,7 +904,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@types/chai@5.2.1':
+  '@types/chai@5.2.2':
     dependencies:
       '@types/deep-eql': 4.0.2
 
@@ -912,7 +912,7 @@ snapshots:
 
   '@types/mocha@10.0.10': {}
 
-  '@types/node@22.15.3':
+  '@types/node@22.15.9':
     dependencies:
       undici-types: 6.21.0
 
