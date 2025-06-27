@@ -1,5 +1,9 @@
 package main
 
+import (
+	"math/big"
+)
+
 type Compare struct {
 	source *CalcIp
 	dist   *CalcIp
