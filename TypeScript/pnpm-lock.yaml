@@ -28,8 +28,8 @@ importers:
         specifier: 8.39.1
         version: 8.39.1(eslint@8.57.1)(typescript@5.9.2)
       chai:
-        specifier: 5.2.1
-        version: 5.2.1
+        specifier: 5.2.2
+        version: 5.2.2
       eslint:
         specifier: 8.57.1
         version: 8.57.1
@@ -245,8 +245,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  chai@5.2.1:
-    resolution: {integrity: sha512-5nFxhUrX0PqtyogoYOA8IPswy5sZFTOsBFl/9bNsmDLgsxYTzSZQJDPppDnZPTQbzSEm0hqGjWPzRemQCYbD6A==}
+  chai@5.2.2:
+    resolution: {integrity: sha512-h0zdIVc3jWCaOQ3sEiclPy0Z26CKIEa/CaQFQHBucFwwARxVPTLV2PPG0p4eDt266xNs0Ouw8p5pv/3pVJzYqQ==}
     engines: {node: '>=18'}
 
   chalk@4.1.2:
@@ -1080,7 +1080,7 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-  chai@5.2.1:
+  chai@5.2.2:
     dependencies:
       assertion-error: 2.0.1
       check-error: 2.1.1
